@@ -1,0 +1,36 @@
+// Simple function to strip the unit of the inputs
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@mixin font-lock($min-width, $min-size, $max-width, $max-size) {
+  //save the unit used
+  $unit: unquote(unit($min-width));
+
+  // Strip the unit of the inputs
+  $inputs: (
+    min-width: strip-unit($min-width),
+    min-size: strip-unit($min-size),
+    max-width: strip-unit($max-width),
+    max-size: strip-unit($max-size)
+  );
+
+  // calculate the gradient
+  $gradient: ($max-size - $min-size)/($max-width - $min-width);
+
+  // calculate the constant
+  $constant: ($max-size - $gradient*$max-width);
+
+  //output the minimum size for font
+  font-size: $min-size;
+
+  //output the font-size  calculation between the min and max viewport sizes
+  @media (min-width: $min-width) {
+    font-size: calc(#{$gradient} * 100vw + #{$constant});
+  }
+
+  //output the maximum value for font-size
+  @media (min-width: $max-width) {
+    font-size: $max-size;
+  }
+}

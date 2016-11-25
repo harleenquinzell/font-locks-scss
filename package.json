@@ -1,0 +1,24 @@
+{
+  "name": "font-locks-scss",
+  "version": "1.0.0",
+  "description": "scss mixin for font-locks",
+  "scripts": {
+    "build-css": "node-sass --include-path scss scss/main.scss public/css/main.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\"",
+    "start": "http-server -a localhost -p 3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harleenquinzell/font-locks-scss.git"
+  },
+  "author": "Erika Saadi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harleenquinzell/font-locks-scss/issues"
+  },
+  "homepage": "https://github.com/harleenquinzell/font-locks-scss#readme",
+  "devDependencies": {
+    "node-sass": "^3.13.0",
+    "nodemon": "^1.11.0"
+  }
+}

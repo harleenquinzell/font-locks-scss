@@ -1,0 +1,13 @@
+@import 'font-locks';
+
+* {
+  font-size: 16px;
+}
+
+h1 {
+  @include font-lock(20rem, 1rem, 80rem, 2.5rem);
+}
+
+h2 {
+  @include font-lock(1024px, 22px, 1440px, 48px);
+}
